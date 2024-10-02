@@ -9,6 +9,7 @@ COPY . .
 
 # Compile the Java program
 RUN javac duplicates_sortarray.java
+EXPOSE 8081
 
 # Command to run the Java application
 CMD ["java", "duplicates_sortarray"]
