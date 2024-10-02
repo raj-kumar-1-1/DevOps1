@@ -1,15 +1,18 @@
-# Use an official OpenJDK 21 image from Docker Hub
-FROM openjdk:11-jre-slim
+# Use an official OpenJDK runtime with JDK (not just JRE)
+FROM openjdk:11-jdk-slim
 
-# Set the working directory in the container
+# Set the working directory inside the container
 WORKDIR /usr/src/app
 
-# Copy the Java source code to the container
+# Copy the current directory contents into the container
 COPY . .
 
 # Compile the Java program
 RUN javac duplicates_sortarray.java
 
+# Expose the port on which the app will run (if needed)
+EXPOSE 8082
 
-# Command to run the Java application
+# Run the Java program
 CMD ["java", "duplicates_sortarray"]
+
