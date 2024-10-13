@@ -8,11 +8,11 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Compile the Java program
-RUN javac duplicates_sortarray.java
+RUN javac Hello.java
 
 # Expose the port on which the app will run (if needed)
 EXPOSE 8082
 
 # Run the Java program
-CMD ["java", "duplicates_sortarray"]
+CMD ["java", "Hello"]
 
