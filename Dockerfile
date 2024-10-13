@@ -1,18 +1,14 @@
-# Use an official OpenJDK runtime with JDK (not just JRE)
-FROM openjdk:11-jdk-slim
+# Use an official OpenJDK image as the base
+FROM openjdk:17-jdk-alpine
 
-# Set the working directory inside the container
+# Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy the current directory contents into the container
-COPY . .
+# Copy your Java file to the container
+COPY Hello.java .
 
-# Compile the Java program
+# Compile the Java file
 RUN javac Hello.java
-
-# Expose the port on which the app will run (if needed)
-EXPOSE 8082
 
 # Run the Java program
 CMD ["java", "Hello"]
-
